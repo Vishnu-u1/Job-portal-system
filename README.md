@@ -83,7 +83,8 @@ WHERE skill_rank <= 3;
 
 **Vishnupriyan P**  
 SQL Developer & Data Enthusiast  
-🔗 [GitHub Profile](https://github.com/yourusername) *(replace with your URL)*
+🔗 [GitHub Profile](https://github.com/Vishnu-u1
+) 
 
 ---
 
@@ -92,5 +93,6 @@ SQL Developer & Data Enthusiast
 ```txt
 Job Portal Database System | GitHub
 Developed a MySQL-based job portal backend with relational schema, realistic data, advanced queries, dynamic job filtering, and scheduled events.
-🔗 https://github.com/yourusername/job-portal-database
+🔗 https://github.com/Vishnu-u1/Job-portal-system/blob/main/README.md
+
 ```
