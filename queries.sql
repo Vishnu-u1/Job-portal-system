@@ -1,4 +1,4 @@
-USE linkuri;
+USE linkedin;
 SELECT
 u.user_name,j.job_title,
 a.app_date,c.comp_name
@@ -188,10 +188,10 @@ INNER JOIN (
 INNER JOIN companies c ON j.comp_id = c.comp_id
 INNER JOIN emp_count emp ON c.ec_id = emp.ec_id
 WHERE 1 = 1';
-				IF P_job_title is not null and p_job_title != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND j.job_title ="',p_job_title,'"');END IF;
-                IF P_comp_title is not null and p_comp_title != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND c.comp_name ="',p_comp_title,'"');END IF;
-                IF P_location is not null and p_location != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND c.location ="',p_location,'"');END IF;
-                IF p_industry is not null and p_industry != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND emp.industry_type ="',p_industry,'"');END IF;
+		IF P_job_title is not null and TRIM(p_job_title) != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND LOWER(j.job_title) =LOWER("',p_job_title,'")');END IF;
+                IF P_comp_title is not null and p_comp_title != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND LOWER(c.comp_name) =LOWER("',p_comp_title,'")');END IF;
+                IF P_location is not null and p_location != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND LOWER(c.location)=LOWER("',p_location,'")');END IF;
+                IF p_industry is not null and p_industry != ' ' THEN SET sql_stmts= CONCAT(sql_stmts,' AND LOWER(emp.industry_type) =LOWER("',p_industry,'")');END IF;
                 
                 SET @sql_stmts=sql_stmts;
                 PREPARE search_filter from @sql_stmts;
@@ -199,6 +199,3 @@ WHERE 1 = 1';
                 deallocate PREPARE search_filter;
 END$$
 
-DELIMITER ;
-
-call search_filter(' ',' ',' ','MUMBAI',' ');
