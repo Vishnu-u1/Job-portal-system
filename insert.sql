@@ -1,3 +1,4 @@
+USE linkedin;
 INSERT INTO users(user_id,user_name,mob_no,email)
 VALUES(1,"vishnu",9597567310,"vishnupriyan1219@gmail.com"),
       (2,"harini",6543783,"harini@gmail.com"),
